@@ -54,8 +54,10 @@ def verify_jsonl(file_path, sample_count=2):
             print(f"Topic switch: {sample.get('is_topic_switch')}")
     return True
 
+from pathlib import Path
+
 def main():
-    base = os.path.abspath("data")
+    base = Path(__file__).resolve().parent.parent.parent / "data"
     
     # 1. ImplexConv
     implex_supp = os.path.join(base, "ImplexConv", "supportive", "ImplexConv_supportive.json")

@@ -1,15 +1,35 @@
-"""Master Orchestration Pipeline to Execute All Research Experiments (E1 to E5)."""
+"""Master Orchestration Pipeline to Execute All Research Experiments (E1 to E5) on Whole Datasets."""
 import os
+import sys
 import json
 import time
+from pathlib import Path
+
+# Ensure repository root is in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from dotenv import load_dotenv
+load_dotenv(ROOT_DIR / ".env")
+
 from src.config import TierSelectConfig, Episode, OUTPUT_DIR, DATA_DIR
 from src.preprocessing.chunker import DialogueChunker
 from src.preprocessing.episode_builder import EpisodeBuilder
-from experiments.run_e1_baseline_comparison import run_experiment_e1
-from experiments.run_e2_goal_shift_analysis import run_experiment_e2
-from experiments.run_e3_classifier_comparison import run_experiment_e3
-from experiments.run_e4_robustness_growth import run_experiment_e4
-from experiments.run_e5_efficiency_breakdown import run_experiment_e5
+
+# Import experiment runners
+try:
+    from tests.actual_evaluation.run_e1_baseline_comparison import run_experiment_e1
+    from tests.actual_evaluation.run_e2_goal_shift_analysis import run_experiment_e2
+    from tests.actual_evaluation.run_e3_classifier_comparison import run_experiment_e3
+    from tests.actual_evaluation.run_e4_robustness_growth import run_experiment_e4
+    from tests.actual_evaluation.run_e5_efficiency_breakdown import run_experiment_e5
+except ImportError:
+    from experiments.run_e1_baseline_comparison import run_experiment_e1
+    from experiments.run_e2_goal_shift_analysis import run_experiment_e2
+    from experiments.run_e3_classifier_comparison import run_experiment_e3
+    from experiments.run_e4_robustness_growth import run_experiment_e4
+    from experiments.run_e5_efficiency_breakdown import run_experiment_e5
 
 def load_data_and_build_episodes():
     print("[1/6] Loading benchmark datasets and constructing evaluation episodes...")

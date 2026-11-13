@@ -1,22 +1,27 @@
 {
   "ImplexConv": {
-    "status": "FAILED",
-    "error": "The read operation timed out",
-    "source": "Hugging Face (Kaylee0501/ImplexConv)"
+    "status": "SUCCESS",
+    "source": "Hugging Face (Kaylee0501/ImplexConv)",
+    "local_path": "data/ImplexConv",
+    "verified": true
   },
   "LongMemEval": {
-    "status": "FAILED",
-    "error": "The read operation timed out",
-    "source": "Hugging Face (xiaowu0162/longmemeval-cleaned)"
+    "status": "SUCCESS",
+    "source": "Hugging Face (xiaowu0162/longmemeval-cleaned)",
+    "local_path": "data/LongMemEval",
+    "verified": true
   },
   "LoCoMo": {
-    "status": "FAILED",
-    "error": "HTTP Error 404: Not Found",
-    "source": "GitHub (snap-research/locomo)"
+    "status": "SUCCESS",
+    "source": "GitHub (snap-research/locomo)",
+    "local_path": "data/LoCoMo",
+    "verified": true
   },
   "TopiOCQA": {
-    "status": "FAILED",
-    "error": "The read operation timed out",
-    "source": "Hugging Face (McGill-NLP/TopiOCQA)"
+    "status": "SUCCESS",
+    "source": "Hugging Face (McGill-NLP/TopiOCQA)",
+    "local_path": "data/TopiOCQA",
+    "verified": true
   }
 }
+

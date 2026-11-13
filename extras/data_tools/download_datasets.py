@@ -46,8 +46,10 @@ def check_hf_parquet_files(repo_id):
         print(f"Could not fetch parquet files via API for {repo_id}: {e}")
         return []
 
+from pathlib import Path
+
 def main():
-    base_dir = os.path.abspath("data")
+    base_dir = str(Path(__file__).resolve().parent.parent.parent / "data")
     os.makedirs(base_dir, exist_ok=True)
     results = {}
 

@@ -101,8 +101,10 @@ def download_with_resume(url, dest_path, max_retries=5):
         return True
     return False
 
+from pathlib import Path
+
 def main():
-    base_dir = os.path.abspath("data")
+    base_dir = str(Path(__file__).resolve().parent.parent.parent / "data")
     os.makedirs(base_dir, exist_ok=True)
     
     # Let's clean up any corrupt partial files from earlier attempt by moving them to .tmp if incomplete
