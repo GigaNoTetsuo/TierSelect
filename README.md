@@ -8,10 +8,10 @@ A goal-aware three-tier selective context allocation framework for multi-session
 
 ---
 
-## ⚡ Quick Start (Setup in 4 Steps)
+## ⚡ Quick Start (Setup in 5 Steps)
 
 ### 1. Activate Environment
-use python venv or conda
+Use Python venv or conda
 
 ### 2. Install Dependencies
 ```bash
@@ -44,7 +44,21 @@ THETA_LO=0.20
 DELTA=0.05
 ```
 
-### 4. Start PostgreSQL via Docker
+### 4. Download & Verify Benchmark Datasets
+> [!NOTE]
+> The raw benchmark datasets are ~3.85 GB and are excluded from Git via `.gitignore`.
+> Run the automated resumable downloader to fetch all benchmark data into `data/`:
+
+```bash
+# Download ImplexConv, LongMemEval, LoCoMo, and TopiOCQA
+python extras/data_tools/download_resumable.py
+
+# Verify files and schemas
+python extras/data_tools/verify_datasets.py
+```
+*(The download script supports resuming interrupted transfers using HTTP Range headers).*
+
+### 5. Start PostgreSQL via Docker
 ```bash
 docker compose up -d
 ```
@@ -119,6 +133,7 @@ Here is a general summary of what each directory contains:
 
 * **`data/` (Benchmark Datasets):**
   Houses the verified research datasets used for experimental evaluation: **LoCoMo** (multi-session conversational memory), **LongMemEval** (long-term memory and needle retrieval), **TopiOCQA** (conversational QA with topic shifts), and **ImplexConv** (implicit goal shifts with supportive and opposed turns).
+  *(Excluded from Git tracking via `.gitignore` due to large file sizes (~3.85 GB); populated automatically using `python extras/data_tools/download_resumable.py`).*
 
 * **`outputs/` (Benchmark Results & Metrics):**
   Stores all generated experimental output logs, comparative benchmark tables, token efficiency statistics, and JSON summaries produced by the evaluation runs.
