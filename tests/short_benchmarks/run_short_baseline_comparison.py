@@ -1,10 +1,17 @@
 """Short baseline comparative evaluation using live Jev, live LLM, and PostgreSQL."""
 import os
+import sys
 import time
 import json
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# Ensure repository root is in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+load_dotenv(ROOT_DIR / ".env")
 
 from src.config import TierSelectConfig, Episode, DialogueChunk, DATA_DIR
 from src.preprocessing.chunker import DialogueChunker

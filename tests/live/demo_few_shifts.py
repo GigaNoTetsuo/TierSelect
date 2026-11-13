@@ -1,6 +1,17 @@
 """Demonstration of TierSelect pipeline over 2-3 conversational goal shifts with PostgreSQL persistence."""
 import os
+import sys
 import json
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Ensure repository root is in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+load_dotenv(ROOT_DIR / ".env")
+
 import psycopg2
 from src.config import TierSelectConfig, DialogueChunk
 from src.models.jev_classifier import JevClassifier

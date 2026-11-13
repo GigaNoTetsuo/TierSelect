@@ -4,11 +4,18 @@ Logs request payloads, response models, token usage, and answers so you can
 verify the API hits in your TypeSafe AI dashboard.
 """
 import os
+import sys
 import time
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load .env
-load_dotenv()
+# Ensure repository root is in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+# Load .env from root
+load_dotenv(ROOT_DIR / ".env")
 
 from typesafe_sdk import TypeSafeClient, Noul, Choice, Score
 
