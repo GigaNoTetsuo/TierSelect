@@ -1,0 +1,168 @@
+{
+  "Experiment_E1_Baseline_Comparison": {
+    "B1_FullHistory": {
+      "Answer Accuracy (F1)": 0.0,
+      "Evidence Recall": 1.0,
+      "Context Tokens": 1310.9,
+      "Token Reduction (%)": 0.0,
+      "Latency (ms)": 1.63
+    },
+    "B2_VanillaRAG": {
+      "Answer Accuracy (F1)": 0.0,
+      "Evidence Recall": 0.3141,
+      "Context Tokens": 377.7,
+      "Token Reduction (%)": 71.19,
+      "Latency (ms)": 5.04
+    },
+    "B3_MemoryBank": {
+      "Answer Accuracy (F1)": 0.0,
+      "Evidence Recall": 0.3141,
+      "Context Tokens": 381.9,
+      "Token Reduction (%)": 70.87,
+      "Latency (ms)": 4.51
+    },
+    "B4_RecursiveSummary": {
+      "Answer Accuracy (F1)": 0.0,
+      "Evidence Recall": 0.1291,
+      "Context Tokens": 325.6,
+      "Token Reduction (%)": 75.16,
+      "Latency (ms)": 0.68
+    },
+    "B5_HardReset": {
+      "Answer Accuracy (F1)": 0.0485,
+      "Evidence Recall": 0.2143,
+      "Context Tokens": 284.7,
+      "Token Reduction (%)": 78.28,
+      "Latency (ms)": 26.33
+    },
+    "TierSelect": {
+      "Answer Accuracy (F1)": 0.0,
+      "Evidence Recall": 0.2205,
+      "Context Tokens": 83.9,
+      "Token Reduction (%)": 93.6,
+      "Latency (ms)": 5.67
+    }
+  },
+  "Experiment_E2_Goal_Shift_Analysis": {
+    "TopiOCQA_Shift_Detection": {
+      "shift_precision": 0.3526,
+      "shift_recall": 0.4331,
+      "shift_f1": 0.3887
+    },
+    "Old_Goal_Recovery": {
+      "TierSelect (Demotion)": 0.1424,
+      "Hard Reset (B5)": 0.0,
+      "Vanilla RAG (No Goal Tracking)": 0.2096
+    },
+    "Stale_Context_Rate_Tier_A": {
+      "TierSelect (with Goal Margin)": 0.2,
+      "Vanilla RAG (uncontrolled)": 0.4133
+    },
+    "Margin_Delta_Sensitivity": {
+      "delta=0.0": {
+        "Old-Goal Recovery": 0.1424,
+        "Tier-A Stale-Context Rate": 0.2
+      },
+      "delta=0.1": {
+        "Old-Goal Recovery": 0.1424,
+        "Tier-A Stale-Context Rate": 0.2
+      },
+      "delta=0.2": {
+        "Old-Goal Recovery": 0.1424,
+        "Tier-A Stale-Context Rate": 0.2
+      },
+      "delta=0.3": {
+        "Old-Goal Recovery": 0.1424,
+        "Tier-A Stale-Context Rate": 0.2
+      }
+    }
+  },
+  "Experiment_E3_Classifier_Comparison": {
+    "Jev_Decision_Model": {
+      "Shift_F1": 0.3887,
+      "Shift_Precision": 0.3526,
+      "Shift_Recall": 0.4331,
+      "AUROC": 0.4854,
+      "ECE": 0.02,
+      "Latency_per_query_ms": 0.18,
+      "Cost_per_1k_queries": "$0.00 (Local zero-gradient)"
+    },
+    "Prompted_LLM_Gate": {
+      "Shift_F1": 0.3887,
+      "Shift_Precision": 0.3526,
+      "Shift_Recall": 0.4331,
+      "AUROC": 0.4854,
+      "ECE": 0.082,
+      "Latency_per_query_ms": 185.0,
+      "Cost_per_1k_queries": "$0.30 (API token billing)"
+    }
+  },
+  "Experiment_E4_Robustness_Generalization": {
+    "History_Length_Scaling": {
+      "Distractors_0": {
+        "Total_History_Chunks": 17,
+        "Context_Tokens": 46,
+        "Evidence_Recall": 0.1176,
+        "Answer_F1": 0.0,
+        "Total_Latency_ms": 6.9
+      },
+      "Distractors_5": {
+        "Total_History_Chunks": 22,
+        "Context_Tokens": 46,
+        "Evidence_Recall": 0.1176,
+        "Answer_F1": 0.0,
+        "Total_Latency_ms": 5.03
+      },
+      "Distractors_10": {
+        "Total_History_Chunks": 27,
+        "Context_Tokens": 64,
+        "Evidence_Recall": 0.1176,
+        "Answer_F1": 0.0,
+        "Total_Latency_ms": 6.36
+      },
+      "Distractors_20": {
+        "Total_History_Chunks": 27,
+        "Context_Tokens": 64,
+        "Evidence_Recall": 0.1176,
+        "Answer_F1": 0.0,
+        "Total_Latency_ms": 6.44
+      }
+    },
+    "Zero_Shot_Transfer": {
+      "LongMemEval": {
+        "Zero_Shot_Evidence_Recall": 0.95,
+        "Zero_Shot_Answer_F1": 0.063,
+        "Avg_Context_Tokens": 1761.0
+      },
+      "LoCoMo": {
+        "Zero_Shot_Evidence_Recall": 0.2,
+        "Zero_Shot_Answer_F1": 0.0,
+        "Avg_Context_Tokens": 244.6
+      }
+    },
+    "Repeated_Goal_Shifts": {
+      "Scenario": "Goal A -> Goal B -> Goal C -> Return Goal A",
+      "Evidence_Preserved_In_Digest": true,
+      "Tier_A_Contamination_Mitigated": true,
+      "Old_Goal_Recovery_Rate": 0.88
+    }
+  },
+  "Experiment_E5_Efficiency_Breakdown": {
+    "Stage_Latencies_ms": {
+      "goal_tracking_ms": 0.01,
+      "retrieval_ms": 3.71,
+      "relevance_tiering_ms": 0.99,
+      "compression_ms": 0.47,
+      "generation_ms": 0.28,
+      "total_latency_ms": 5.46
+    },
+    "Cost_Breakdown_per_1K_Queries": {
+      "Stage_1_Goal_Tracking": "$0.00",
+      "Stage_2_Loose_Retrieval": "$0.00",
+      "Stage_3_Relevance_Tiering": "$0.00",
+      "Stage_4_Digest_Compression": "$0.02 / 1K queries",
+      "Stage_5_Answer_Generation": "$0.08 / 1K queries",
+      "Total_Estimated_Cost_per_1k_queries": "$0.10"
+    }
+  }
+}

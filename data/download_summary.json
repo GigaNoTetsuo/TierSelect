@@ -1,0 +1,22 @@
+{
+  "ImplexConv": {
+    "status": "FAILED",
+    "error": "The read operation timed out",
+    "source": "Hugging Face (Kaylee0501/ImplexConv)"
+  },
+  "LongMemEval": {
+    "status": "FAILED",
+    "error": "The read operation timed out",
+    "source": "Hugging Face (xiaowu0162/longmemeval-cleaned)"
+  },
+  "LoCoMo": {
+    "status": "FAILED",
+    "error": "HTTP Error 404: Not Found",
+    "source": "GitHub (snap-research/locomo)"
+  },
+  "TopiOCQA": {
+    "status": "FAILED",
+    "error": "The read operation timed out",
+    "source": "Hugging Face (McGill-NLP/TopiOCQA)"
+  }
+}
