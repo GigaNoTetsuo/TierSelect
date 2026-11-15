@@ -8,7 +8,7 @@
     "reduction": 0.0,
     "token_f1": 0.7055666666666666,
     "bert_f1": 0.9071000000000001,
-    "latency_ms": 1243.2766333331529
+    "latency_ms": 2431.2221666647624
   },
   {
     "name": "B2: Vanilla Top-k RAG",
@@ -17,9 +17,9 @@
     "stale_rate": 0.5,
     "tokens": 70.66666666666667,
     "reduction": 10.55,
-    "token_f1": 0.5555666666666667,
-    "bert_f1": 0.8737666666666667,
-    "latency_ms": 1201.7442000002727
+    "token_f1": 0.5898666666666667,
+    "bert_f1": 0.8776666666666667,
+    "latency_ms": 1505.3938666654478
   },
   {
     "name": "B3: MemoryBank",
@@ -30,7 +30,7 @@
     "reduction": -32.49,
     "token_f1": 0.7041333333333334,
     "bert_f1": 0.9045666666666667,
-    "latency_ms": 990.5681999995674
+    "latency_ms": 1932.8909000008327
   },
   {
     "name": "B4: Recursive Summary",
@@ -41,7 +41,7 @@
     "reduction": -30.38,
     "token_f1": 0.7055666666666666,
     "bert_f1": 0.9071000000000001,
-    "latency_ms": 968.7459999998586
+    "latency_ms": 1786.3846333299687
   },
   {
     "name": "B5: Hard Reset",
@@ -52,17 +52,17 @@
     "reduction": 28.69,
     "token_f1": 0.15906666666666666,
     "bert_f1": 0.7262000000000001,
-    "latency_ms": 845.7470999989406
+    "latency_ms": 1186.806066665061
   },
   {
     "name": "Proposed TierSelect",
     "evidence_recall": 0.8333333333333334,
     "old_goal_recovery": 0.8333333333333334,
     "stale_rate": 0.0,
-    "tokens": 54.333333333333336,
-    "reduction": 31.22,
-    "token_f1": 0.6291,
-    "bert_f1": 0.8797,
-    "latency_ms": 1817.0057666666253
+    "tokens": 53.666666666666664,
+    "reduction": 32.07,
+    "token_f1": 0.6389,
+    "bert_f1": 0.8794666666666666,
+    "latency_ms": 1990.7871333343792
   }
 ]

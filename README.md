@@ -131,6 +131,9 @@ Here is a general summary of what each directory contains:
   * **`extras/demos/`:** Standalone multi-turn goal shift pipeline demo (`demo_few_shifts.py`) and live TypeSafe Jev API connectivity verification (`test_jev_live.py`).
   * **`extras/data_tools/`:** Data acquisition utilities (`download_resumable.py`) and dataset SHA-256 integrity checkers (`verify_datasets.py`).
 
+* **`docs/` (Research Proposal & Literature):**
+  Contains the Phase 2 Research Methodology Proposal (`Phase_2_Research_Methodology_Proposal.pdf`), the complete 18-page literature & evaluation metrics compendium (`Literature_Evaluation_Metrics_and_Results_Compendium.pdf`), and the library of reviewed and benchmarked academic papers (`docs/papers/`) including ImplexConv, MemoryBank, LoCoMo, LongMemEval, TopiOCQA, GSC-QA, and ATACompressor.
+
 * **`data/` (Benchmark Datasets):**
   Houses the verified research datasets used for experimental evaluation: **LoCoMo** (multi-session conversational memory), **LongMemEval** (long-term memory and needle retrieval), **TopiOCQA** (conversational QA with topic shifts), and **ImplexConv** (implicit goal shifts with supportive and opposed turns).
   *(Excluded from Git tracking via `.gitignore` due to large file sizes (~3.85 GB); populated automatically using `python extras/data_tools/download_resumable.py`).*
